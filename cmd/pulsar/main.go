@@ -12,6 +12,7 @@ import (
 	"github.com/lakelimbo/pulsar/internal/db"
 	"github.com/lakelimbo/pulsar/internal/redis"
 	"github.com/lakelimbo/pulsar/internal/server"
+	_ "github.com/lakelimbo/pulsar/internal/server/docs"
 	"github.com/lakelimbo/pulsar/internal/tracing"
 	_ "github.com/lib/pq"
 )

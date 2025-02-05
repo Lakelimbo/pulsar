@@ -7,6 +7,7 @@ This is an API built in Go as a starting point for my other web-related projects
 - Go (obviously)
 - Docker
 - Just (not mandatory, but recommended)
+- Swag
 
 ## Start the project
 
@@ -50,8 +51,8 @@ just
   - [x] Routing
 - [x] PostgreSQL for the database
 - [x] Redis for caching
-- [ ] Make routes OpenAPI compliant
-  - [ ] Add an OpenAPI explorer frontend (e.g. Swagger, ReDocly, Scalar...)
+- [X] Make routes OpenAPI compliant
+  - [X] Add an OpenAPI explorer frontend (e.g. Swagger, ReDocly, Scalar...)
 - [ ] OpenTelemetry
   - [ ] Tracing
   - [ ] Logging

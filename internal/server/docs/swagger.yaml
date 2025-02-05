@@ -1,0 +1,32 @@
+basePath: /api/v1
+host: localhost:8080
+info:
+  contact: {}
+  description: A cool Go API
+  title: Pulsar API
+  version: 0.0.1
+paths:
+  /health:
+    get:
+      consumes:
+      - application/json
+      description: Checks the health of the server
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "503":
+          description: Service Unavailable
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Server health check
+      tags:
+      - health
+swagger: "2.0"

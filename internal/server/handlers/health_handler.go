@@ -20,6 +20,16 @@ func NewHealthHandler(db *bun.DB, redis *redis.Client) *HealthHandler {
 	}
 }
 
+// HealthCheck godoc
+//
+//	@Summary		Server health check
+//	@Description	Checks the health of the server
+//	@Tags			health
+//	@Accept			json
+//	@Produce		json
+//	@Success		200	{object}	map[string]string
+//	@Failure		503	{object}	map[string]string
+//	@Router			/health [get]
 func (h *HealthHandler) HealthCheck(c echo.Context) error {
 	ctx := c.Request().Context()
 
