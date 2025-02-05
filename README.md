@@ -30,6 +30,7 @@ go run ./cmd/pulsar serve
 ```
 
 ## Other commands
+
 You can find other commands with Just:
 
 ```sh
@@ -45,15 +46,15 @@ just
 
 ## TO-DO
 
-[X] Basic API functionality
-    [X] Routing
-[X] PostgreSQL for the database
-[X] Redis for caching
-[ ] Make routes OpenAPI compliant
-    [ ] Add an OpenAPI explorer frontend (e.g. Swagger, ReDocly, Scalar...)
-[ ] OpenTelemetry
-    [ ] Tracing
-    [ ] Logging
-[ ] Frontend
-[ ] Containerize backend
-[ ] Better docs overall
+- [x] Basic API functionality
+  - [x] Routing
+- [x] PostgreSQL for the database
+- [x] Redis for caching
+- [ ] Make routes OpenAPI compliant
+  - [ ] Add an OpenAPI explorer frontend (e.g. Swagger, ReDocly, Scalar...)
+- [ ] OpenTelemetry
+  - [ ] Tracing
+  - [ ] Logging
+- [ ] Frontend
+- [ ] Containerize backend
+- [ ] Better docs overall
