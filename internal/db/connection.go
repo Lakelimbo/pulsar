@@ -5,13 +5,12 @@ import (
 	"fmt"
 
 	"github.com/lakelimbo/pulsar/internal/config"
-	"github.com/uptrace/bun"
-	"github.com/uptrace/bun/dialect/pgdialect"
-	"github.com/uptrace/bun/extra/bundebug"
+	_ "github.com/lib/pq"
+	"github.com/pressly/goose/v3"
 )
 
-func NewDBConnection(cfg *config.DBConfig) (*bun.DB, error) {
-	pg := fmt.Sprintf(
+func NewDBConnection(cfg *config.DBConfig) (*sql.DB, error) {
+	connStr := fmt.Sprintf(
 		"postgres://%s:%s@%s:%s/%s?sslmode=disable",
 		cfg.User,
 		cfg.Password,
@@ -20,17 +19,26 @@ func NewDBConnection(cfg *config.DBConfig) (*bun.DB, error) {
 		cfg.DB,
 	)
 
-	sqldb, err := sql.Open("postgres", pg)
+	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		return nil, err
 	}
-
-	db := bun.NewDB(sqldb, pgdialect.New())
-	db.AddQueryHook(bundebug.NewQueryHook(bundebug.WithVerbose(true)))
 
 	if err := db.Ping(); err != nil {
 		return nil, err
 	}
 
 	return db, nil
+}
+
+func RunMigrations(db *sql.DB) error {
+	if err := goose.SetDialect("postgres"); err != nil {
+		return err
+	}
+
+	if err := goose.Up(db, "internal/db/migrations"); err != nil {
+		return err
+	}
+
+	return nil
 }
